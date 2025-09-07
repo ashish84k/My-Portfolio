@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+
+.ripple {
+  width: 100px;
+  height: 100px;
+  border: 2px solid rgba(0, 200, 255, 0.6);
+  border-radius: 50%;
+  position: absolute;
+  transform: scale(0);
+  animation: rippleAnim 1.2s ease-out forwards;
+  box-shadow: 0 0 15px rgba(0, 200, 255, 0.4);
+  backdrop-filter: blur(2px);
+}
+
+.ripple::before{
+  content: "";
+  position: absolute;
+  border: 2px solid rgb(249, 252, 252);
+  border-radius: 50%;
+  transform: scale(0);
+}
+
+.ripple::after {
+  content: "";
+  position: absolute;
+  border: 10px solid rgba(248, 248, 248, 0.3);
+  border-radius: 50%;
+}
+/* 
+.ripple::after {
+  animation-delay: 0.3s;
+  border-color: rgba(0, 196, 250, 0.2);
+} */
+
+@keyframes rippleAnim {
+  to {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+/* .box{ */
+  /* background: url('https://i.pinimg.com/originals/2e/27/85/2e2785ecceb403e25eb6c10007f2d991.gif'); */
+  /* background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTUxdnlnajNsOHo4aXUwMThucTdhdXo4enNseGRkYThndHBjdDE3cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OK5LK5zLFfdm/giphy.gif'); */
+  /* background: url('https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dXJkdWQzZj   JyYnhidTdhcDJ3b2R5aWltYWppazBsZ2p6ODc0ZTduMSZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/KR5Rpkiug3t5xqQnqc/giphy.gif'); */
+
+  /* background: url('https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3eHhlYXhkNnF5dzNndHBsZnhoNzV4bnhtdXc1aTNxeHgyNmwwN2d6YSZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/lbcLMX9B6sTsGjUmS3/giphy.gif'); */
+  /* background: url('https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3eHhlYXhkNnF5dzNndHBsZnhoNzV4bnhtdXc1aTNxeHgyNmwwN2d6YSZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/7b8jdNUoFBdcoILjjv/giphy.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+} */
+
+
+
+/* .item-box {
+  background: linear-gradient(0deg, black 90%, rgb(30, 30, 155) );
+  background-size: 200% 200%;
+} */
+
+
+/* .box-4 li{
+  display: flex;
+  gap: 20px;
+} */
+
+/* Skills section ke liye stylish checkbox */
+/* .box-4 input[type="checkbox"] {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid gold;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  transform: scale(1.5);
+  margin: 10px;
+  background: black;
+} */
+
+/* .box-4 input[type="checkbox"]:hover {
+  box-shadow: 0 0 8px gold;
+  transform: scale(1.7);
+} */
+
+/* Checked state */
+/* .box-4 input[type="checkbox"]:checked {
+  background-color: gold;
+  border-color: gold;
+  box-shadow: 0 0 10px gold, 0 0 20px gold;
+} */
+
+/* Tick mark banaane ke liye */
+/* .box-4 input[type="checkbox"]:checked::after {
+  content: '✔';
+  position: absolute;
+  color: black;
+  font-size: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -52%);
+  font-weight: bold;
+} */
+
+
+
+
+
