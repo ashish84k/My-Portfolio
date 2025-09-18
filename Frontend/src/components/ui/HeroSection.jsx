@@ -81,7 +81,7 @@ function HeroSection() {
         className="relative mt-10 md:mt-0"
       >
         <motion.img
-          src='./images/unnamed (2).webp'
+          src='./images/img5.jpg'
           alt="Profile"
           className="w-72 md:w-[400px] rounded-full border-4 border-pink-500 shadow-lg brightness-130"
           animate={{ y: [0, -10, 0] }}

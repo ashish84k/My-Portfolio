@@ -1,10 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { BookOpen, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 const blogPosts = [
   {
     id: 1,
     title: "My Story",
+    slug: "my-story",
     desc: "How I started my journey into tech — from curiosity in school to learning web development, internships, and working with the MERN stack.",
     date: "Sep 2025",
     link: "#",
@@ -12,6 +14,7 @@ const blogPosts = [
   {
     id: 2,
     title: "Getting Started with React",
+    slug: "getting-started-with-react",
     desc: "How I began learning React — from building simple components to exploring hooks and state management.",
     date: "Aug 2025",
     link: "#",
@@ -19,6 +22,7 @@ const blogPosts = [
   {
     id: 3,
     title: "Node.js & Express.js Basics",
+    slug: "nodejs-expressjs-basics",
     desc: "Notes from my backend learning journey — REST APIs, routes, and middleware using Node.js and Express.js.",
     date: "Jul 2025",
     link: "#",
@@ -26,6 +30,7 @@ const blogPosts = [
   {
     id: 4,
     title: "MongoDB for Beginners",
+    slug: "mongodb-for-beginners",
     desc: "My experience with MongoDB — creating databases, collections, and writing simple queries for projects.",
     date: "Jun 2025",
     link: "#",
@@ -33,6 +38,7 @@ const blogPosts = [
   {
     id: 5,
     title: "Exploring Bun.js",
+    slug: "exploring-bunjs",
     desc: "First impressions of Bun.js as a faster alternative to Node.js, and what I learned while trying it out.",
     date: "May 2025",
     link: "#",
@@ -40,6 +46,7 @@ const blogPosts = [
   {
     id: 6,
     title: "Core Java Learning Notes",
+    slug: "core-java-learning-notes",
     desc: "Important topics I learned in Core Java — OOPs concepts, exception handling, and writing basic programs.",
     date: "Apr 2025",
     link: "#",
@@ -76,10 +83,17 @@ const BlogSection = () => {
               <span className="text-blue-600 dark:text-blue-400">Articles</span>
             </h2>
           </div>
-          <p>
+          <p className="mb-6">
             Sharing my learnings, tutorials, and experiences from my journey
             into web development and full-stack technologies.
           </p>
+          <Link 
+            to="/blog" 
+            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+          >
+            Read All Articles
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </motion.div>
 
         {/* Blog Cards */}
@@ -87,11 +101,12 @@ const BlogSection = () => {
           {blogPosts.map((post, index) => (
             <motion.div
               key={post.id}
-              className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition duration-300 flex flex-col"
+              className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition duration-300 flex flex-col cursor-pointer"
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.6 }}
               whileHover={{ scale: 1.05 }}
+              onClick={() => window.location.href = `/blog/${post.slug}`}
             >
               <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
                 {post.title}
@@ -103,13 +118,12 @@ const BlogSection = () => {
                 <span className="text-sm text-gray-500 dark:text-gray-400">
                   {post.date}
                 </span>
-                <motion.a
-                  href={post.link}
-                  className="flex items-center text-blue-600 dark:text-blue-400 font-medium hover:underline"
+                <motion.div
+                  className="flex items-center text-blue-600 dark:text-blue-400 font-medium"
                   whileHover={{ x: 5 }}
                 >
                   Read More <ArrowRight className="ml-1 w-4 h-4" />
-                </motion.a>
+                </motion.div>
               </div>
             </motion.div>
           ))}

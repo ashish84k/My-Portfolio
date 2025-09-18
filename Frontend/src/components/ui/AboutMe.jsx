@@ -1,5 +1,6 @@
 import React from "react";
-import { MapPin, Calendar, GraduationCap, Briefcase, Code, Award } from "lucide-react";
+import { MapPin, Calendar, GraduationCap, Briefcase, Code, Award, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function AboutMe() {
   return (
@@ -26,6 +27,16 @@ export default function AboutMe() {
             </span>
             <span className="text-cyan-400">.</span>
           </h2>
+          <p className="text-gray-300 text-lg mb-8">
+            Learn more about my journey, skills, and passion for development
+          </p>
+          <Link 
+            to="/about" 
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300"
+          >
+            Learn More About Me
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
         <div className="flex flex-col lg:flex-row items-center gap-16">

@@ -9,7 +9,13 @@ function Navbar() {
   const [darkMode, setDarkMode] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
-  const navLinks = ["Home", "About", "Experience", "Projects", "Contact"];
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Projects", path: "/projects" },
+    { name: "Blog", path: "/blog" },
+    { name: "Contact", path: "/contact" }
+  ];
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -59,9 +65,9 @@ function Navbar() {
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 font-medium">
           {navLinks.map((link, index) => (
-            <a
-              key={index} // key yaha pe do
-              href={`#${link.toLowerCase().replace(/\s+/g, "-")}`} // link ko slug bana ke
+            <Link
+              key={index}
+              to={link.path}
             >
               <motion.li
                 initial={{ opacity: 0, y: -10 }}
@@ -69,10 +75,10 @@ function Navbar() {
                 transition={{ delay: index * 0.1 }}
                 className="relative group cursor-pointer hover:text-pink-400 transition-colors duration-300"
               >
-                {link}
+                {link.name}
                 <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
               </motion.li>
-            </a>
+            </Link>
           ))}
         </ul>
 
@@ -119,11 +125,11 @@ function Navbar() {
           </div>
 
           {/* CTA Button */}
-          <a href="#contact">
+          <Link to="/contact">
             <button className="hidden md:block bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-lg text-white font-semibold">
               Hire Me
             </button>
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -145,26 +151,25 @@ function Navbar() {
               />
             </div>
             <ul className="flex flex-col gap-6 text-white font-medium">
-              {navLinks.map((link , index) => (
-                <a
-                  key={index} // key yaha pe do
-                  href={`#${link.toLowerCase().replace(/\s+/g, "-")}`} // link ko slug bana ke
+              {navLinks.map((link, index) => (
+                <Link
+                  key={index}
+                  to={link.path}
+                  onClick={() => setMenuOpen(false)}
                 >
-                  <li
-                    key={link}
-                    className="hover:text-pink-400"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {link}
+                  <li className="hover:text-pink-400">
+                    {link.name}
                   </li>
-                </a>
+                </Link>
               ))}
             </ul>
-            <a href="#contact">
+            
+            
+            <Link to="/contact">
               <button className="mt-8 hover:cursor-pointer bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-lg text-white font-semibold">
                 Hire Me
               </button>
-            </a>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

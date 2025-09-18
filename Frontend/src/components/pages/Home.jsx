@@ -42,36 +42,37 @@ const cards = [
 ];
 
 function Home() {
-  const [ripples, setRipples] = useState([]);
+  // const [ripples, setRipples] = useState([]);
 
-  const MouseClick = (e) => {
-    const newRipple = {
-      x: e.clientX - 50,
-      y: e.clientY - 50,
-      id: Date.now(),
-    };
-    setRipples((prev) => [...prev, newRipple]);
+  // const MouseClick = (e) => {
+  //   const newRipple = {
+  //     x: e.clientX - 50,
+  //     y: e.clientY - 50,
+  //     id: Date.now(),
+  //   };
+  //   setRipples((prev) => [...prev, newRipple]);
 
-    setTimeout(() => {
-      setRipples((prev) => prev.filter((r) => r.id !== newRipple.id));
-    }, 1500);
-  };
+  //   setTimeout(() => {
+  //     setRipples((prev) => prev.filter((r) => r.id !== newRipple.id));
+  //   }, 1500);
+  // };
 
   return (
     <div className="">
       <Navbar></Navbar>
       <div>
       </div>
-      <div className="p-5 Trapes" id="home" onClick={MouseClick} onMouseMove={MouseClick}>
+      {/* <div className="p-5 Trapes" id="home" onClick={MouseClick} onMouseMove={MouseClick}> */}
+      <div className="p-5 Trapes" id="home">
         <HeroSection></HeroSection>
         {/* <Slider></Slider> */}
-        {ripples.map((r) => (
+        {/* {ripples.map((r) => (
           <span
             key={r.id}
             style={{ left: r.x, top: r.y }}
             className="absolute ripple"
           ></span>
-        ))}
+        ))} */}
         {/* <h1
           className="absolute font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500
              text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
