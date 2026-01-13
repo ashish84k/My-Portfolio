@@ -24,7 +24,7 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    const res = await fetch("http://localhost:3000/api/email", {
+    const res = await fetch("https://my-portfolio-ewmc.onrender.com/api/email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
